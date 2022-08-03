@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div class="section">
+        <h2>Purchases</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="text-start">Symbol</th>
+                    <th class="text-start">Name</th>
+                    <th class="text-end">Shares</th>
+                    <th class="text-end">Price</th>
+                    <th class="text-end">Total</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <!-- TODO: Loop through the database entries to display them in this table -->
+                {% for item in purchases %}
+                <tr>
+                    <td class="text-start">{{item.symbol}}</td>
+                    <td class="text-start">{{item.name}}</td>
+                    <td class="text-end">{{item.shares}}</td>
+                    <td class="text-end">{{item.price | usd}}</td>
+                    <td class="text-end">{{item.total | usd}}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+                    <td class="border-0 w-bold text-end">{{cash_left | usd}}</td>
+                </tr>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="4">Total</td>
+                    <td class="border-0 w-bold text-end">{{total_cash | usd}}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+{% endblock %}

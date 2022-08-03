@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <select class="form-select mx-auto w-auto" name="symbol">
+            <option disabled selected>Choose Symbol to Sell</option>
+            {% for symbol in symbols %}
+                <option value="{{symbol.symbol}}">{{symbol.symbol}}</option>
+            {% endfor %}
+        </select>
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares to Sell" type="text">
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}
