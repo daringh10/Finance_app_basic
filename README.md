@@ -38,6 +38,7 @@ ____________________________
 
 Type
   - flask run
+
 into the terminal, then click on the link and you're set!
 
   
