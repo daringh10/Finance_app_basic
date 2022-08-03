@@ -57,6 +57,25 @@ def lookup(symbol):
         }
     except (KeyError, TypeError, ValueError):
         return None
+def get_tickers():
+    try:
+        api_key = os.environ.get("API_KEY")
+        url = f"https://cloud.iexapis.com/beta/ref-data/symbols?token={api_key}"
+        
+        response = requests.get(url)
+        response.raise_for_status()
+    except requests.RequestException:
+        return None
+
+    try:
+        symbol_list = []
+        quote = response.json()
+        for company in quote:
+            symbol_list.append(company["symbol"])
+        return symbol_list
+        
+    except (KeyError, TypeError, ValueError):
+        return None
 
 
 def usd(value):

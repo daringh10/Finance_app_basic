@@ -8,6 +8,7 @@
     <form action="/quote" method="post">
         <div class="mb-3">
             <input
+            list = 'tickers'
             autocomplete="off"
             autofocus
             class="form-control mx-auto w-auto"
@@ -15,7 +16,22 @@
             name="symbol"
             placeholder="Search Symbol"
             type="text">
+           
+            <datalist id="tickers">
+                {% for item in ticker_list%}
+                <option value="{{item}}"></option>
+                {%endfor%}
+            </datalist>
+
+           
+           
         </div>
         <button class="btn btn-primary" type="submit">Search</button>
+        
     </form>
+   
+    
+
+   
+
 {% endblock %}

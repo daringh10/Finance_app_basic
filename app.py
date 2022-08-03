@@ -1,12 +1,14 @@
 import os
 
+from matplotlib import ticker
+
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from helpers import apology, login_required, lookup, usd
+from helpers import apology, login_required, lookup, usd, get_tickers
 
 # Configure application
 app = Flask(__name__)
@@ -25,6 +27,7 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
+
 # Make sure API key is set
 if not os.environ.get("API_KEY"):
     raise RuntimeError("API_KEY not set")
@@ -38,11 +41,14 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
+#Get list of symbols
+ticker_list = get_tickers()
+
 
 @app.route("/")
 @login_required
 def index():
-
+    
     user_id = session["user_id"]
     user_purchases = db.execute("SELECT * FROM purchases WHERE id=?",user_id)
 
@@ -129,7 +135,7 @@ def buy():
 
 
     else:
-        return render_template("/buy.html")
+        return render_template("/buy.html",ticker_list=ticker_list)
 
 @app.route("/change_password",methods=["POST","GET"])
 @login_required
@@ -225,11 +231,12 @@ def quote():
         price = quoted_symbol["price"]
         symbol = quoted_symbol["symbol"]
 
-
+        
+       
         return render_template("quoted.html",name=name,price=usd(price),symbol=symbol)
     #If method is GET
     else:
-        return render_template("quote.html")
+        return render_template("quote.html",ticker_list=ticker_list)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
