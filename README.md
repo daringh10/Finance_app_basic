@@ -34,8 +34,9 @@ ____________________________________________________________________________
        - where value is that (pasted) value, without any space immediately before or after the =
 
     ### WINDOWS: 
-
-      follow this guide to set your API Key: https://gargankush.medium.com/storing-api-keys-as-environmental-variable-for-windows-linux-and-mac-and-accessing-it-through-974ba7c5109f
+      follow this guide to set your API Key: 
+      
+        https://gargankush.medium.com/storing-api-keys-as-environmental-variable-for-windows-linux-and-mac-and-accessing-it-through-974ba7c5109f
 
 ____________________________
 How to run
