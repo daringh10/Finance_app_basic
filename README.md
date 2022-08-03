@@ -1,4 +1,4 @@
-A way to simulate trading stocks
+# A way to simulate trading stocks
 
 You must have:
 
