@@ -29,7 +29,9 @@ You must register for an API key in order to query IEX's data:
  - Copy the key that appears under the Token column (it should begin with pk_)
  - In your terminal window, execute:
     UNIX/MAC : export API_KEY=value
-    WINDOWS  : set    API_KEY=value
+
+    WINDOWS  : follow this guide to set your API Key: https://gargankush.medium.com/storing-api-keys-as-environmental-variable-for-windows-linux-and-mac-and-accessing-it-through-974ba7c5109f
+    
  where value is that (pasted) value, without any space immediately before or after the =
 
 ____________________________
