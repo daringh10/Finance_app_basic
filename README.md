@@ -29,6 +29,7 @@ ____________________________________________________________________________
  - Copy the key that appears under the Token column (it should begin with pk_)
     ### UNIX/MAC:
       In your terminal window, execute: 
+      
         export API_KEY=value
        - where value is that (pasted) value, without any space immediately before or after the =
 
