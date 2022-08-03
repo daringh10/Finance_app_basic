@@ -34,7 +34,7 @@ ____________________________________________________________________________
        - where value is that (pasted) value, without any space immediately before or after the =
 
     ### WINDOWS: 
-      follow this guide to set your API Key: 
+      Follow this guide to set your API Key: 
       
         https://gargankush.medium.com/storing-api-keys-as-environmental-variable-for-windows-linux-and-mac-and-accessing-it-through-974ba7c5109f
 
@@ -42,7 +42,8 @@ ____________________________
 How to run
 ____________________________
 
-Type
+Type:
+
   - flask run
 
 into the terminal, then click on the link and you're set!
